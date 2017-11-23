@@ -1,5 +1,7 @@
 package it.oztaking.com.a76_menudemo;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,6 +40,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 0:
                 Toast.makeText(this,"点击了前进按钮",Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("尊敬的用户：");
+                builder.setMessage("您已欠费10000000元");
+                builder.setPositiveButton("缴费", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       Toast.makeText(getApplicationContext(),"您已缴费",Toast.LENGTH_SHORT).show();;
+                    }
+                });
+                builder.setNegativeButton("停机", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       Toast.makeText(getApplicationContext(),"停机",Toast.LENGTH_SHORT).show();;
+                    }
+                });
+
+                builder.show();
+
                 break;
             case 1:
                 Toast.makeText(this,"点击了后退按钮",Toast.LENGTH_SHORT).show();
